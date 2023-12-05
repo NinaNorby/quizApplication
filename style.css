@@ -1,0 +1,45 @@
+/* Denna styling ska gälla hela sidan  därav before after  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --hue-neutral: 600;
+  /* deafult */
+  --hue-wronganswer: 0;
+  /* Sätts till en viss färg vid inkorrekt svar */
+  --hue-correctanswer: 145;
+  /* Sätts till en viss färg vid korrekt svar */
+}
+
+body {
+  --hue: var(
+    --hue-neutral
+  ); /*är en del av CSS Custom Properties (CSS-variabler). ´*/
+  font-size: 2.6rem; /*36px motsvarar 3.6 rem pga "omformateringen ovan */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* centrerar innehållet */
+  text-align: center;
+  width: 100vw; /* 100% av viewport width */
+  height: 100vh; /*100% av viewport height */
+  background-color: hsl(
+    var(--hue),
+    120%,
+    70%
+  ); /*Använder vaiebeln hue och sätter en färg i hsl mått */
+}
+
+ul {
+  list-style-type: none;
+}
