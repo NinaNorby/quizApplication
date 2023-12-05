@@ -6,40 +6,94 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html {
-  font-size: 62.5%;
-}
-
-:root {
-  --hue-neutral: 600;
-  /* deafult */
-  --hue-wronganswer: 0;
-  /* Sätts till en viss färg vid inkorrekt svar */
-  --hue-correctanswer: 145;
-  /* Sätts till en viss färg vid korrekt svar */
-}
-
 body {
-  --hue: var(
-    --hue-neutral
-  ); /*är en del av CSS Custom Properties (CSS-variabler). ´*/
-  font-size: 2.6rem; /*36px motsvarar 3.6 rem pga "omformateringen ovan */
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* centrerar innehållet */
-  text-align: center;
-  width: 100vw; /* 100% av viewport width */
-  height: 100vh; /*100% av viewport height */
-  background-color: hsl(
-    var(--hue),
-    120%,
-    70%
-  ); /*Använder vaiebeln hue och sätter en färg i hsl mått */
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(106, 61, 231)
 }
 
-ul {
-  list-style-type: none;
+.quiz-container {
+
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: 60rem;
+  max-width: 90%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.6rem 0.8rem rgba(3, 3, 3, 0.1);
+}
+
+#question-container {
+  color: rgb(102, 70, 70);
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+#question {
+  color: black;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+#answer-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+input {
+  width: fit-content;
+}
+
+.btn {
+  padding: 1.5rem;
+  background-color: rgba(89, 46, 245, 0.651);
+  color: white;
+  border: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  box-shadow: 0 0 0.6rem 0.1rem rgba(3, 3, 3, 0.1);
+}
+
+input,
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #f8e805;
+  box-shadow: 0 0 0.6rem 0.1rem rgba(3, 3, 3, 0.1);
+}
+
+.hide {
+  display: none;
+}
+
+#result {
+  margin: 2rem auto;
+}
+
+#question,
+#result {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+label {
+  font-size: 1.5rem;
 }

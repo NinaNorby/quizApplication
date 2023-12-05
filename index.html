@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
@@ -11,18 +11,17 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="quiz-container">
-            <h1> Quiz Time! </h1>
-            <div id="question"> Tryck på start för att börja quizet </div>
+    <div class=" quiz-container">
+        <div id="question-container">
+            <h2 id="question"> Frågor</h2> 
+            <div id="answer-buttons"></div>
             <ul id="options"></ul>
         </div>
-
-        <div class="button-container">
-            <button id="start-question" class='startBtn btn'>Starta </button>
-            <button id="next-Btn" class="nextBtn btn hide">Nästa fråga</button>
-        </div>
+        <button id="next-btn" class="btn hide">Nästa</button>
+        <div id="result" class="hide"></div>
+        <button id="restart-btn" class="btn hide">Starta om </button>
     </div>
+
 </body>
 
 </html>

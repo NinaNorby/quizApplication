@@ -1,79 +1,102 @@
 'use strict';
+               //KOM IHÅG ATT ÄNDRA FRÅGORNA TILL NÅGOT ANNAT "ROLIGARE. "
+const questions = [
+    {
+        question: "What is the capital of Sweden?",
+        inputType: "radio", // Inputtype används för att skapa olika typer av inputfält då jag både har checkbox och radio buttons 
+        answers: [
+            { text: "New York", correct: false },
+            { text: "London", correct: false },
+            { text: "Stockholm", correct: true },
+            { text: "Dublin", correct: false }
+        ],
+    },
+    {
+        question: "Ligger Barcelona i spanien ?",
+        inputType: "radio",
+        answers: [
+            { text: "Sant", correct: true },
+            { text: "Falskt", correct: false }
+        ]
+    },
+    { question: "Ligger Barcelona i spanien ?",
+    inputType: "radio",
+    answers: [
+        { text: "Sant", correct: true },
+        { text: "Falskt", correct: false }
+    ]
+},
+    {
+        question: "What is the capital of Norway?",
+        inputType: "radio",
+        answers: [
+            { text: "Paris", correct: false },
+            { text: "London", correct: false },
+            { text: "Oslo", correct: true },
+            { text: "Dublin", correct: false }
+        ],
+    }, 
+    {
+        question: "Vilka av de 3 största haven på jorden?",
+        inputType: "checkbox",
+        answers: [
+            { text: "Stilla havet", correct: true },
+            { text: "Atlanten", correct: true },
+            { text: "Indiska oceanen", correct: true },
+            { text: "Karibiska havet", correct: false }
+        ]
+    },
+    {
+        question: "What is the capital of Finland?",
+        inputType: "radio",
+        answers: [
+            { text: "New York", correct: false },
+            { text: "Paris", correct: false },
+            { text: "Helsinki", correct: true },
+            { text: "Dublin", correct: false }
+        ],
+    },
+    {
+        question: "What is the capital of Denmark?",
+        inputType: "radio",
+        answers: [
+            { text: "New York", correct: false },
+            { text: "London", correct: false },
+            { text: "Copenhagen", correct: true },
+            { text: "Dublin", correct: false }
+        ],
+    },
+    {
+    question: "What is the capital of Island?",
+    inputType: "radio",
+    answers: [
+        { text: "Paris", correct: false },
+        { text: "London", correct: false },
+        { text: "Reykjavik", correct: true },
+        { text: "Dublin", correct: false }
+    ],
+},
+{
+    question: "What is the capital of England?",
+    inputType: "radio",
+    answers: [
+        { text: "New York", correct: false },
+        { text: "Toronto", correct: true },
+        { text: "London", correct: true },
+        { text: "Dublin", correct: false }
+    ],
+},
+{
+    question: "What is the capital of France?",
+    inputType: "radio",
+    answers: [
+        { text: "New York", correct: false },
+        { text: "London", correct: false },
+        { text: "Paris", correct: true },
+        { text: "Dublin", correct: false }
+    ],
+},
+    
 
-class questionList {
-    constructor() {
-        this.questionList = [];
-    }
-    addQuestion(question) {
-        this.questionList.push(question);
-    }
-    getQuestion(index) {
-        return this.questionList[index];
-    }
-    getQuestionList() {
-        return this.questionList;
-    }
-    getQuestionListLength() {
-        return this.questionList.length;
-    }
-    checkAnswer(index, option) {
-        let question = this.getQuestion(index);
-        let answer = question.getAnswer();
-        if (Array.isArray(answer)) {
-            return answer.includes(option);
-        } else {
-            return option === answer;
-        }
-    }
-}
 
-class question {
-    constructor(question, answer, options) {
-        this.question = question;
-        this.answer = answer;
-        this.options = options;
-    }
-    getQuestion() {
-        return this.question;
-    }
-    getAnswer() {
-        return this.answer;
-    }
-    getOptions() {
-        return this.options;
-    }
-}
-//Förslag på frågor. De kommer mest troligt att bytas ut (Totalt 10 frågor ska finnas)
-function getQuestionList() {
-    let qlist = new questionList();
-
-    let newQuestion = new question("What is the capital of France?", "Paris", ["London", "Berlin", "Paris", "Madrid"]);
-    qlist.addQuestion(newQuestion);
-
-    newQuestion = new question("What is the capital of Spain?", "Madrid", ["Stockholm", "Helsinki", "Paris", "Madrid"]);
-    qlist.addQuestion(newQuestion);
-
-    newQuestion = new question("What is the capital of Germany?", "Berlin", ["London", "Berlin", "Paris", "Madrid"]);
-    qlist.addQuestion(newQuestion);
-
-    newQuestion = new question("What is the capital of England?", "London", ["London", "Berlin", "Paris", "Madrid"]);
-    qlist.addQuestion(newQuestion);
-
-    newQuestion = new question("Heter världens högsta berg K2 ?", "False", ["True", "False"]);
-    qlist.addQuestion(newQuestion);
-
-    newQuestion = new question("Is Oslo the capital of Norway?", "True", ["True", "False"]);
-    qlist.addQuestion(newQuestion);
-
-    let multiChoiceQuestion = new question(
-        "Which of the following are European capitals?",
-        ["London", "Paris"],
-        ["London", "Paris", "New York", "Tokyo"]
-    );
-    qlist.addQuestion(multiChoiceQuestion);
-
-    newQuestion = new question("Which of the following are European capitals?", ["Paris", "Berlin"], ["Paris", "Berlin", "New York", "Tokyo"]);
-    qlist.addQuestion(newQuestion);
-
-    return qlist.getQuestionList();
-}
+];
