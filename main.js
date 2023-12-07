@@ -57,13 +57,14 @@ function resetState() {
 }
 
 nextButton.addEventListener("click", () => {
-    const answerInputs = Array.from(answerButtons.querySelectorAll("input"));
+    // söker igenom alla child till answerButtons element och returnerar en NodeLista av alla element som matchar "input". 
+    const answerInputs = Array.from(answerButtons.querySelectorAll("input")); //konverterar nodeListan som returneras av querySelectorAll till en array. 
     const currentQuestion = shuffledQuestions[currentQuestionIndex];
     if (currentQuestion.inputType === "radio") {
-        const answerIndex = answerInputs.findIndex((radio) => radio.checked);
+        const answerIndex = answerInputs.findIndex((radio) => radio.checked);//  kontrollerar att answerIndex inte är -1. Om det är -1, har användaren inte har valt något svar --> ALERT
         if (answerIndex !== -1) {
             if (currentQuestion.answers[answerIndex].correct) {
-                score++;
+                score++; //om det finns fler frågor att ställa.  ställs nästa fråga annars hoppar den ut (end quiz )
             }
             currentQuestionIndex++;
             if (shuffledQuestions.length > currentQuestionIndex) {
@@ -76,21 +77,29 @@ nextButton.addEventListener("click", () => {
         }
     } else if (currentQuestion.inputType === "checkbox") {
         let scoreIncrement = 0;
+        let isAnyChecked = false;
         answerInputs.forEach((checkbox, index) => {
-            if (checkbox.checked === currentQuestion.answers[index].correct) {
-                scoreIncrement++;
+            if (checkbox.checked) {
+                isAnyChecked = true;
+                if (checkbox.checked === currentQuestion.answers[index].correct) {
+                    scoreIncrement++;
+                }
             }
-        });
-        if (scoreIncrement === answerInputs.length) {
-            score++;
-        }
-        currentQuestionIndex++;
-        if (shuffledQuestions.length > currentQuestionIndex) {
-            setNextQuestion();
+        }); //Jag måste kolla igenom detta igen . Jag får inte koden att fungera ....
+        if (isAnyChecked) {
+            alert("Du behöver göra ett val här nedan för att gå vidare.");
         } else {
-            endQuiz();
+            if (scoreIncrement === answerInputs.length) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (shuffledQuestions.length > currentQuestionIndex) {
+                setNextQuestion();
+            } else {
+                endQuiz();
+            }
         }
-    }
+    };
 });
 
 
