@@ -1,3 +1,4 @@
+'use strict';   
 const questionContainer = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -8,19 +9,20 @@ const resultDiv = document.getElementById("result");
 let shuffledQuestions, currentQuestionIndex, score;
 
 
-//q: vad gör startQuiz?  a: den startar quizet genom att sätta score till 0, 
+
 startQuiz();
 
 function startQuiz() {
     score = 0;
     questionContainer.style.display = "flex";
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5); // math.random - 0.5 för att frågorna kommer i slumpmässig ordning varje gång  
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
     currentQuestionIndex = 0;
-    nextButton.classList.remove("hide"); // tar bort hide klassen från nextButton
-    restartButton.classList.add("hide");    // lägger till hide klassen på restartButton
-    resultDiv.classList.add("hide");    // lägger till hide klassen på resultDiv
-    setNextQuestion(); // kör setNextQuestion funktionen
+    nextButton.classList.remove("hide");
+    restartButton.classList.add("hide");
+    resultDiv.classList.add("hide");
+    setNextQuestion();
 }
+
 function setNextQuestion() {
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
@@ -53,5 +55,68 @@ function resetState() {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
-//I morgon måste jag kolla på denna funktionen igen samt kolla på hur jag kan göra så att jag kan använda denna funktionen för både radio och checkbox !?
-//Hur ska jag hantera när det är slut på frågesporten
+
+nextButton.addEventListener("click", () => {
+    const answerInputs = Array.from(answerButtons.querySelectorAll("input"));
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    if (currentQuestion.inputType === "radio") {
+        const answerIndex = answerInputs.findIndex((radio) => radio.checked);
+        if (answerIndex !== -1) {
+            if (currentQuestion.answers[answerIndex].correct) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (shuffledQuestions.length > currentQuestionIndex) {
+                setNextQuestion();
+            } else {
+                endQuiz();
+            }
+        } else {
+            alert("Du behöver göra ett val här nedan för att gå vidare.");
+        }
+    } else if (currentQuestion.inputType === "checkbox") {
+        let scoreIncrement = 0;
+        answerInputs.forEach((checkbox, index) => {
+            if (checkbox.checked === currentQuestion.answers[index].correct) {
+                scoreIncrement++;
+            }
+        });
+        if (scoreIncrement === answerInputs.length) {
+            score++;
+        }
+        currentQuestionIndex++;
+        if (shuffledQuestions.length > currentQuestionIndex) {
+            setNextQuestion();
+        } else {
+            endQuiz();
+        }
+    }
+});
+
+
+restartButton.addEventListener("click", startQuiz);
+
+
+function endQuiz() {
+    questionContainer.style.display = "none";
+    nextButton.classList.add("hide");
+    restartButton.classList.remove("hide");
+    resultDiv.classList.remove("hide");
+    const scorePercentage = (score / shuffledQuestions.length) * 100;
+    let resultText = "";
+    let resultColor = "";
+    if (scorePercentage < 50) {
+        resultText = "Underkänt";
+        resultColor = "red";
+
+    } else if (scorePercentage <= 75) {
+        resultText = "Bra";
+        resultColor = "orange";
+    } else {
+        resultText = "Riktigt bra jobbat";
+        resultColor = "green";
+
+    }
+    resultDiv.innerText = `Ditt slutliga resultat blev  ${score} av  ${shuffledQuestions.length} rätt . ${resultText}`;
+    resultDiv.style.color = resultColor;
+}

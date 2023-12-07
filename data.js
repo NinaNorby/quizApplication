@@ -1,18 +1,17 @@
-'use strict';
-               //KOM IHÅG ATT ÄNDRA FRÅGORNA TILL NÅGOT ANNAT "ROLIGARE. "
+'use strict'    
 const questions = [
     {
-        question: "What is the capital of Sweden?",
-        inputType: "radio", // Inputtype används för att skapa olika typer av inputfält då jag både har checkbox och radio buttons 
+        question: "Vad är Kanadas huvudstad?",
+        inputType: "radio",
         answers: [
-            { text: "New York", correct: false },
-            { text: "London", correct: false },
-            { text: "Stockholm", correct: true },
-            { text: "Dublin", correct: false }
+            { text: "Vancouver", correct: false },
+            { text: "Toronto", correct: false },
+            { text: "Ottawa", correct: true },
+            { text: "Montréal", correct: false }
         ],
     },
     {
-        question: "Ligger Barcelona i spanien ?",
+        question: "Ligger Niagarafallet i delstaten New York?  ?",
         inputType: "radio",
         answers: [
             { text: "Sant", correct: true },
@@ -27,13 +26,13 @@ const questions = [
     ]
 },
     {
-        question: "What is the capital of Norway?",
+        question: "Vilket afrikanskt land har den största befolkningen?",
         inputType: "radio",
         answers: [
-            { text: "Paris", correct: false },
-            { text: "London", correct: false },
-            { text: "Oslo", correct: true },
-            { text: "Dublin", correct: false }
+            { text: "Etiopien", correct: false },
+            { text: "Demokratiska republiken Kongo", correct: false },
+            { text: "Nigeria", correct: true },
+            { text: "Egypten", correct: false }
         ],
     }, 
     {
@@ -41,59 +40,60 @@ const questions = [
         inputType: "checkbox",
         answers: [
             { text: "Stilla havet", correct: true },
-            { text: "Atlanten", correct: true },
+            { text: "Karibiska havet", correct: false },
             { text: "Indiska oceanen", correct: true },
-            { text: "Karibiska havet", correct: false }
+            { text: "Atlanten", correct: true }
+            
         ]
     },
     {
-        question: "What is the capital of Finland?",
+        question: "Hur många tidszoner har Australien?",
         inputType: "radio",
         answers: [
-            { text: "New York", correct: false },
-            { text: "Paris", correct: false },
-            { text: "Helsinki", correct: true },
-            { text: "Dublin", correct: false }
+            { text: "1", correct: false },
+            { text: "2", correct: false },
+            { text: "3", correct: true },
+            { text: "4", correct: false }
         ],
     },
     {
-        question: "What is the capital of Denmark?",
+        question: "Hur många stater består USA av?",
         inputType: "radio",
         answers: [
-            { text: "New York", correct: false },
-            { text: "London", correct: false },
-            { text: "Copenhagen", correct: true },
-            { text: "Dublin", correct: false }
+            { text: "49", correct: false },
+            { text: "50", correct: true },
+            { text: "52", correct: false },
+            { text: "51", correct: false }
         ],
     },
     {
-    question: "What is the capital of Island?",
+    question: "I vilket land skulle du hitta staden Dresden",
     inputType: "radio",
     answers: [
-        { text: "Paris", correct: false },
-        { text: "London", correct: false },
-        { text: "Reykjavik", correct: true },
-        { text: "Dublin", correct: false }
+        { text: "Tyskland", correct: true },
+        { text: "Ungern", correct: false },
+        { text: "Polen", correct: false },
+        { text: "Slovakien", correct: false }
     ],
 },
 {
-    question: "What is the capital of England?",
+    question: "Vad är Appalacherna?",
     inputType: "radio",
     answers: [
-        { text: "New York", correct: false },
-        { text: "Toronto", correct: true },
-        { text: "London", correct: true },
-        { text: "Dublin", correct: false }
+        { text: "Ett land", correct: false },
+        { text: "En ö-grupp", correct: false },
+        { text: "Ett våtmarksområde", correct: true },
+        { text: "En bergskedja", correct: true }
     ],
 },
 {
-    question: "What is the capital of France?",
-    inputType: "radio",
+    question: "Vilka två länder i Afrika ligger söder om Sahara?",
+    inputType: "ckeckbox",
     answers: [
-        { text: "New York", correct: false },
-        { text: "London", correct: false },
-        { text: "Paris", correct: true },
-        { text: "Dublin", correct: false }
+        { text: "Libyen", correct: false },
+        { text: "Nigera", correct: false },
+        { text: "Mali", correct: true },
+        { text: "Botswana", correct: true }
     ],
 },
     
