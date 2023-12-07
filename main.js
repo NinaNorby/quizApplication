@@ -15,19 +15,19 @@ startQuiz();
 function startQuiz() {
     score = 0;
     questionContainer.style.display = "flex";
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-    currentQuestionIndex = 0;
-    nextButton.classList.remove("hide");
-    restartButton.classList.add("hide");
-    resultDiv.classList.add("hide");
-    setNextQuestion();
+    shuffledQuestions = questions.sort(() => Math.random() - 0.5); // Math.random() - 0.5 ger ett slumpmässigt tal mellan -0.5 och 0.5 
+    currentQuestionIndex = 0; // Index för att hålla koll på vilken fråga man är på
+    nextButton.classList.remove("hide"); // Detta lägger till klassen "hide" till restartButton elementet
+    restartButton.classList.add("hide"); 
+    resultDiv.classList.add("hide"); 
+    setNextQuestion(); // kallar på funktionen setNextQuestion
 }
 
 function setNextQuestion() {
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
-
+// Denna funktionen visar frågan och svaren 
 function showQuestion(question) {
     questionElement.innerText = question.question;
     question.answers.forEach((answer, index) => {
@@ -90,6 +90,7 @@ nextButton.addEventListener("click", () => {
         } else {
             endQuiz();
         }
+        
     }
 });
 
@@ -120,3 +121,31 @@ function endQuiz() {
     resultDiv.innerText = `Ditt slutliga resultat blev  ${score} av  ${shuffledQuestions.length} rätt . ${resultText}`;
     resultDiv.style.color = resultColor;
 }
+
+const toggle = document.getElementById("toggle-dark-mode");
+const body = document.querySelector("body");
+const quizContainer = document.querySelector(".quiz-container");
+const nextBtn = document.getElementById("next-btn");
+
+
+toggle.addEventListener("click", function() {
+    this.classList.toggle("bi-moon");
+    if(this.classList.contains('bi-moon')){
+        body.style.backgroundColor = "black";
+        body.style.color = "white";
+        quizContainer.style.backgroundColor = "black";
+        quizContainer.style.color = "white";
+        quizContainer.style.border = "1px solid gray";
+        nextBtn.style.backgroundColor = "gray";
+        nextBtn.style.color = "white";
+        body.style.transition = "2s"
+    }else {
+        body.style.backgroundColor = "rgb(104, 80, 243)";
+        body.style.color = "black";
+        quizContainer.style.backgroundColor = "white";
+        quizContainer.style.color = "black";
+        nextBtn.style.backgroundColor = "rgb(104, 80, 243)";
+        nextBtn.style.hover = "yellow";
+        body.style.transition = "2s"
+    }
+});

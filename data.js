@@ -1,4 +1,5 @@
-'use strict'    
+// 'use strict';
+
 const questions = [
     {
         question: "Vad är Kanadas huvudstad?",
@@ -18,13 +19,14 @@ const questions = [
             { text: "Falskt", correct: false }
         ]
     },
-    { question: "Ligger Barcelona i spanien ?",
-    inputType: "radio",
-    answers: [
-        { text: "Sant", correct: true },
-        { text: "Falskt", correct: false }
-    ]
-},
+    {
+        question: "Vilken är den största staden i Vietnam?",
+        inputType: "radio",
+        answers: [
+            { text: "Ho Chi Minh City", correct: true },
+            { text: "Ha Noi", correct: false }
+        ]
+    },
     {
         question: "Vilket afrikanskt land har den största befolkningen?",
         inputType: "radio",
@@ -34,18 +36,20 @@ const questions = [
             { text: "Nigeria", correct: true },
             { text: "Egypten", correct: false }
         ],
-    }, 
+    },
     {
         question: "Vilka av de 3 största haven på jorden?",
         inputType: "checkbox",
         answers: [
             { text: "Stilla havet", correct: true },
-            { text: "Karibiska havet", correct: false },
+            { text: "Atlanten", correct: true },
             { text: "Indiska oceanen", correct: true },
-            { text: "Atlanten", correct: true }
-            
+            { text: "Karibiska havet", correct: false }
+
         ]
     },
+
+
     {
         question: "Hur många tidszoner har Australien?",
         inputType: "radio",
@@ -67,36 +71,36 @@ const questions = [
         ],
     },
     {
-    question: "I vilket land skulle du hitta staden Dresden",
-    inputType: "radio",
-    answers: [
-        { text: "Tyskland", correct: true },
-        { text: "Ungern", correct: false },
-        { text: "Polen", correct: false },
-        { text: "Slovakien", correct: false }
-    ],
-},
-{
-    question: "Vad är Appalacherna?",
-    inputType: "radio",
-    answers: [
-        { text: "Ett land", correct: false },
-        { text: "En ö-grupp", correct: false },
-        { text: "Ett våtmarksområde", correct: true },
-        { text: "En bergskedja", correct: true }
-    ],
-},
-{
-    question: "Vilka två länder i Afrika ligger söder om Sahara?",
-    inputType: "ckeckbox",
-    answers: [
-        { text: "Libyen", correct: false },
-        { text: "Nigera", correct: false },
-        { text: "Mali", correct: true },
-        { text: "Botswana", correct: true }
-    ],
-},
-    
+        question: "I vilket land skulle du hitta staden Dresden",
+        inputType: "radio",
+        answers: [
+            { text: "Tyskland", correct: true },
+            { text: "Ungern", correct: false },
+            { text: "Polen", correct: false },
+            { text: "Slovakien", correct: false }
+        ],
+    },
+    {
+        question: "Vad är Appalacherna?",
+        inputType: "radio",
+        answers: [
+            { text: "Ett land", correct: false },
+            { text: "En ö-grupp", correct: false },
+            { text: "Ett våtmarksområde", correct: true },
+            { text: "En bergskedja", correct: true }
+        ],
+    },
+    {
+        question: "Vilket land i Afrika ligger söder om Sahara?",
+        inputType: "radio",
+        answers: [
+            { text: "Libyen", correct: false },
+            { text: "Nigera", correct: false },
+            { text: "Egypten", correct: true },
+            { text: "Mali", correct: false }
+        ],
+    },
+
 
 
 ];

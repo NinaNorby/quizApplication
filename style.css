@@ -25,6 +25,7 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 0.5rem;
   box-shadow: 0 0 0.6rem 0.1rem rgba(0, 0, 0, 0.1);
+  padding-bottom: 2rem;
 }
 h1 {
   text-align: center;
@@ -96,4 +97,16 @@ input,
 
 label {
   font-size: 1.5rem;
+}
+
+i{
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+}
+h3{
+  text-align: center;
+  font-size: 0.8rem;
 }
