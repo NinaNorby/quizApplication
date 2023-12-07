@@ -27,7 +27,7 @@ function setNextQuestion() {
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
-// Denna funktionen visar frågan och svaren 
+// Denna funkt
 function showQuestion(question) {
     questionElement.innerText = question.question;
     question.answers.forEach((answer, index) => {
@@ -90,7 +90,6 @@ nextButton.addEventListener("click", () => {
         } else {
             endQuiz();
         }
-        
     }
 });
 
@@ -139,6 +138,7 @@ toggle.addEventListener("click", function() {
         nextBtn.style.backgroundColor = "gray";
         nextBtn.style.color = "white";
         body.style.transition = "2s"
+        quizContainer.style.transition = "2s"
     }else {
         body.style.backgroundColor = "rgb(104, 80, 243)";
         body.style.color = "black";
@@ -147,5 +147,6 @@ toggle.addEventListener("click", function() {
         nextBtn.style.backgroundColor = "rgb(104, 80, 243)";
         nextBtn.style.hover = "yellow";
         body.style.transition = "2s"
+   
     }
 });

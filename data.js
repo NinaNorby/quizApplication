@@ -12,7 +12,7 @@ const questions = [
         ],
     },
     {
-        question: "Ligger Niagarafallet i delstaten New York?  ?",
+        question: "Ligger Niagarafallet i delstaten New York?",
         inputType: "radio",
         answers: [
             { text: "Sant", correct: true },
