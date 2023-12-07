@@ -91,13 +91,13 @@ const questions = [
         ],
     },
     {
-        question: "Vilket land i Afrika ligger söder om Sahara?",
+        question: "Vad heter valutan i Venezuela?",
         inputType: "radio",
         answers: [
-            { text: "Libyen", correct: false },
-            { text: "Nigera", correct: false },
-            { text: "Egypten", correct: true },
-            { text: "Mali", correct: false }
+            { text: "Dollar", correct: false },
+            { text: "Bolivar", correct: true },
+            { text: "Ringitti", correct: false },
+            { text: "Lat", correct: false }
         ],
     },
 
