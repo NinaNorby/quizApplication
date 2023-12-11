@@ -10,6 +10,7 @@ const questions = [
             { text: "Ottawa", correct: true },
             { text: "Montréal", correct: false }
         ],
+        correctAnswer:"Ottawa",
     },
     {
         question: "Ligger Niagarafallet i delstaten New York?",
@@ -17,7 +18,8 @@ const questions = [
         answers: [
             { text: "Sant", correct: true },
             { text: "Falskt", correct: false }
-        ]
+        ],
+        correctAnswer:"Sant",
     },
     {
         question: "Vilken är den största staden i Vietnam?",
@@ -25,7 +27,8 @@ const questions = [
         answers: [
             { text: "Ho Chi Minh City", correct: true },
             { text: "Ha Noi", correct: false }
-        ]
+        ],
+        correctAnswer:"Ho Chi Minh City",
     },
     {
         question: "Vilket afrikanskt land har den största befolkningen?",
@@ -36,6 +39,7 @@ const questions = [
             { text: "Nigeria", correct: true },
             { text: "Egypten", correct: false }
         ],
+        correctAnswer:"Nigeria",
     },
     {
         question: "Vilka av de 3 största haven på jorden?",
@@ -46,7 +50,8 @@ const questions = [
             { text: "Indiska oceanen", correct: true },
             { text: "Karibiska havet", correct: false }
 
-        ]
+        ],
+        correctAnswer:"Stilla havet, Atlanten, Indiska oceanen",
     },
 
 
@@ -59,6 +64,7 @@ const questions = [
             { text: "3", correct: true },
             { text: "4", correct: false }
         ],
+        correctAnswer:"3",
     },
     {
         question: "Hur många stater består USA av?",
@@ -69,6 +75,7 @@ const questions = [
             { text: "52", correct: false },
             { text: "51", correct: false }
         ],
+        correctAnswer:"50", 
     },
     {
         question: "I vilket land skulle du hitta staden Dresden",
@@ -79,6 +86,7 @@ const questions = [
             { text: "Polen", correct: false },
             { text: "Slovakien", correct: false }
         ],
+        correctAnswer:"Tyskland",
     },
     {
         question: "Vad är Appalacherna?",
@@ -89,6 +97,7 @@ const questions = [
             { text: "Ett våtmarksområde", correct: true },
             { text: "En bergskedja", correct: true }
         ],
+        correctAnswer:"En bergskedja",
     },
     {
         question: "Vad heter valutan i Venezuela?",
@@ -99,8 +108,7 @@ const questions = [
             { text: "Ringitti", correct: false },
             { text: "Lat", correct: false }
         ],
+        correctAnswer:"Bolivar",
     },
-
-
 
 ];

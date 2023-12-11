@@ -5,6 +5,15 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+:root {
+  /* --primary-backround-image-color:linear-gradient(90deg, rgb(51, 34, 94),rgb(171, 82, 245) 100%); */
+  --primary-body-color: rgb(106, 61, 231);
+  --backround-quiz-container-color: rgb(255, 255, 255);
+  --button-color:  rgb(127, 108, 240);
+  --button-hover-color: rgb(245, 229, 10);
+  --label-hover-color: rgb(104, 80, 243);
+  --radio-button-color:rgb(104, 80, 243);
+}
 
 body {
   display: flex;
@@ -13,7 +22,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: rgb(106, 61, 231);
+background-color:  var(--primary-body-color);
 }
 
 .quiz-container {
@@ -22,8 +31,8 @@ body {
   flex-direction: column;
   width: 60rem;
   max-width: 90%;
-  background-color: rgb(255, 255, 255);
-  border-radius: 0.5rem;
+  background-color: var(--backround-quiz-container-color);
+  border-radius: 1.0rem;
   box-shadow: 0 0 0.6rem 0.5rem rgba(0, 0, 0, 0.4);
   padding-bottom: 2rem;
 }
@@ -66,10 +75,10 @@ input {
 
 .btn {
   padding: 1.5rem;
-  background-color: rgb(104, 80, 243);
+  background-color: var(--button-color);
   color: white;
   border: none;
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-radius: 0 0 0.5rem 0.8rem;
 }
 
 input,
@@ -78,7 +87,9 @@ input,
 }
 
 .btn:hover {
-  background-color: #f5e50a;
+  background-color: var(--button-hover-color);
+  color: black;
+  font-weight: 600;
 }
 
 .hide {
@@ -101,7 +112,7 @@ label {
 }
 label:hover {
   font-weight: 600;
-  color: rgb(104, 80, 243);
+  color: var(--label-hover-color);
 }
 
 i {
@@ -120,4 +131,8 @@ h3 {
 }
 .bi-globe-asia-australia {
   justify-items: center;
+}
+
+input[type="radio"] {
+  accent-color: var(--radio-button-color);
 }
