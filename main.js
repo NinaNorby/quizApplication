@@ -150,32 +150,22 @@ function endQuiz() {
 }
 
 //Dark/light mode
+/*( syntax:  "condition ? exprIfTrue : exprIfFalse ") detta är en Conditional (ternary) operator  som i sig är en förkortad if/else sats som jag i tidigare version gjorde. */ 
 const toggle = document.getElementById("toggle-dark-mode");
 const body = document.querySelector("body");
 const quizContainer = document.querySelector(".quiz-container");
 const nextBtn = document.getElementById("next-btn");
 
-
 toggle.addEventListener("click", function () {
-    this.classList.toggle("bi-moon");
-    if (this.classList.contains('bi-moon')) {
-        body.style.backgroundColor = "black";
-        body.style.color = "white";
-        quizContainer.style.backgroundColor = "black";
-        quizContainer.style.color = "white";
-        quizContainer.style.border = "1px solid gray";
-        nextBtn.style.backgroundColor = "gray";
-        nextBtn.style.color = "white";
-        body.style.transition = "2s"
-        quizContainer.style.transition = "2s"
-    } else {
-        body.style.backgroundColor = "rgb(104, 80, 243)";
-        body.style.color = "black";
-        quizContainer.style.backgroundColor = "white";
-        quizContainer.style.color = "black";
-        nextBtn.style.backgroundColor = "rgb(104, 80, 243)";
-        nextBtn.style.hover = "yellow";
-        body.style.transition = "2s"
+    const isDarkMode = this.classList.toggle("bi-moon");
 
-    }
+    body.style.backgroundColor = isDarkMode ? "black" : "rgb(104, 80, 243)";
+    body.style.color = isDarkMode ? "white" : "black";
+    quizContainer.style.backgroundColor = isDarkMode ? "black" : "white";
+    quizContainer.style.color = isDarkMode ? "white" : "black";
+    quizContainer.style.border = isDarkMode ? "1px solid gray" : "";
+    nextBtn.style.backgroundColor = isDarkMode ? "gray" : "rgb(104, 80, 243)";
+    nextBtn.style.color = isDarkMode ? "white" : "";
+    body.style.transition = "2s";
+    quizContainer.style.transition = isDarkMode ? "2s" : "";
 });
