@@ -1,2 +1,2 @@
 # quizApplication
-Examination 2
+Examination JavaScript
