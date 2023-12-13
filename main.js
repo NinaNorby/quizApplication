@@ -7,29 +7,27 @@ const nextButton = document.getElementById("next-btn");
 const restartButton = document.getElementById("restart-btn");
 const resultDiv = document.getElementById("result");
 
-let shuffledQuestions, currentQuestionIndex, score;
-
-
+let currentQuestionIndex, score;
 
 startQuiz();
 
 function startQuiz() {
     score = 0;
     questionContainer.style.display = "flex";
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5); // Math.random() - 0.5 ger ett slumpmässigt tal mellan -0.5 och 0.5 
-    currentQuestionIndex = 0; // Index för att hålla koll på vilken fråga man är på
-    nextButton.classList.remove("hide"); // Detta lägger till klassen "hide" till restartButton elementet
+    questions.sort(() => Math.random() - 0.5); 
+    currentQuestionIndex = 0;
+    nextButton.classList.remove("hide");
     restartButton.classList.add("hide");
     resultDiv.classList.add("hide");
 
-    setNextQuestion(); // kallar på funktionen setNextQuestion
+    setNextQuestion();
 }
 
 function setNextQuestion() {
     resetState();
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    showQuestion(questions[currentQuestionIndex]);
 }
-// Denna funkt
+
 function showQuestion(question) {
     questionElement.innerText = question.question;
     question.answers.forEach((answer, index) => {
@@ -51,7 +49,7 @@ function showQuestion(question) {
         answerButtons.appendChild(inputGroup);
     });
 }
-// Den tar bort alla child från answerButtons
+
 function resetState() {
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
@@ -59,17 +57,16 @@ function resetState() {
 }
 
 nextButton.addEventListener("click", () => {
-    // söker igenom alla child till answerButtons element och returnerar en nodeLista av alla element som matchar "input". 
-    const answerInputs = Array.from(answerButtons.querySelectorAll("input")); //konverterar nodeListan som returneras av querySelectorAll till en array. 
-    const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    const answerInputs = Array.from(answerButtons.querySelectorAll("input"));
+    const currentQuestion = questions[currentQuestionIndex];
     if (currentQuestion.inputType === "radio") {
-        const answerIndex = answerInputs.findIndex((radio) => radio.checked);//  kontrollerar att answerIndex inte är -1. Om det är -1, har användaren inte har valt något svar --> ALERT
+        const answerIndex = answerInputs.findIndex((radio) => radio.checked);
         if (answerIndex !== -1) {
             if (currentQuestion.answers[answerIndex].correct) {
-                score++; //om det finns fler frågor att ställa.  ställs nästa fråga annars hoppar den ut 
+                score++;
             }
             currentQuestionIndex++;
-            if (shuffledQuestions.length > currentQuestionIndex) {
+            if (questions.length > currentQuestionIndex) {
                 setNextQuestion();
             } else {
                 endQuiz();
@@ -87,7 +84,7 @@ nextButton.addEventListener("click", () => {
                     scoreIncrement++;
                 }
             }
-        }); 
+        });
         if (!isAnyChecked) {
             alert("Du behöver göra ett val här nedan för att gå vidare.");
         } else {
@@ -95,62 +92,49 @@ nextButton.addEventListener("click", () => {
                 score++;
             }
             currentQuestionIndex++;
-            if (shuffledQuestions.length > currentQuestionIndex) {
+            if (questions.length > currentQuestionIndex) {
                 setNextQuestion();
             } else {
                 endQuiz();
             }
         }
-    };
+    }
 });
 
-
 restartButton.addEventListener("click", startQuiz);
-
-
 
 function endQuiz() {
     questionContainer.style.display = "none";
     nextButton.classList.add("hide");
     restartButton.classList.remove("hide");
     resultDiv.classList.remove("hide");
-    const scorePercentage = (score / shuffledQuestions.length) * 100;
+    const scorePercentage = (score / questions.length) * 100;
     let resultText = "";
     let resultColor = "";
     if (scorePercentage < 50) {
-
         resultText = "Underkänt";
         resultColor = "red";
-
     } else if (scorePercentage <= 75) {
         resultText = "Bra";
         resultColor = "orange";
-        {
-            confetti({
-                particleCount: 100,
-                spread: 80,
-                origin: { y: 0.6 }
-            });
-        }
+        confetti({
+            particleCount: 100,
+            spread: 80,
+            origin: { y: 0.6 }
+        });
     } else {
-
         resultText = "Riktigt bra jobbat";
-        resultColor = "green"; {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-        }
-
+        resultColor = "green";
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
     }
-    resultDiv.innerText = `Ditt slutliga resultat blev  ${score} av  ${shuffledQuestions.length} rätt . ${resultText}`;
+    resultDiv.innerText = `Ditt slutliga resultat blev ${score} av ${questions.length} rätt. ${resultText}`;
     resultDiv.style.color = resultColor;
-
 }
 
-//Dark/light mode
-/*( syntax:  "condition ? exprIfTrue : exprIfFalse ") detta är en Conditional (ternary) operator  som i sig är en förkortad if/else sats som jag i tidigare version gjorde. */ 
 const toggle = document.getElementById("toggle-dark-mode");
 const body = document.querySelector("body");
 const quizContainer = document.querySelector(".quiz-container");
