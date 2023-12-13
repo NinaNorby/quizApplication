@@ -14,13 +14,13 @@ startQuiz();
 function startQuiz() {
     score = 0;
     questionContainer.style.display = "flex";
-    questions.sort(() => Math.random() - 0.5); 
-    currentQuestionIndex = 0;
-    nextButton.classList.remove("hide");
-    restartButton.classList.add("hide");
-    resultDiv.classList.add("hide");
+    questions.sort(() => Math.random() - 0.5); // Math.random() - 0.5 ger ett slumpmässigt tal mellan -0.5 och 0.5 
+    currentQuestionIndex = 0; // Index för att hålla koll på vilken fråga man är på
+    nextButton.classList.remove("hide"); // Tar bort klassen hide från nextButton
+    restartButton.classList.add("hide"); // Lägger till klassen hide på restartButton
+    resultDiv.classList.add("hide"); // Lägger till klassen hide på resultDiv
 
-    setNextQuestion();
+    setNextQuestion(); //kallar på funktionen setNextQuestion
 }
 
 function setNextQuestion() {
@@ -57,10 +57,11 @@ function resetState() {
 }
 
 nextButton.addEventListener("click", () => {
-    const answerInputs = Array.from(answerButtons.querySelectorAll("input"));
+    const answerInputs = Array.from(answerButtons.querySelectorAll("input"));  //konverterar nodeListan som returneras av querySelectorAll till en array. 
     const currentQuestion = questions[currentQuestionIndex];
     if (currentQuestion.inputType === "radio") {
-        const answerIndex = answerInputs.findIndex((radio) => radio.checked);
+
+        const answerIndex = answerInputs.findIndex((radio) => radio.checked); 
         if (answerIndex !== -1) {
             if (currentQuestion.answers[answerIndex].correct) {
                 score++;
@@ -85,7 +86,7 @@ nextButton.addEventListener("click", () => {
                 }
             }
         });
-        if (!isAnyChecked) {
+        if (!isAnyChecked) { // Om ingen checkbox är ikryssad så kommer isAnyChecked vara false
             alert("Du behöver göra ett val här nedan för att gå vidare.");
         } else {
             if (scoreIncrement === answerInputs.length) {
@@ -103,6 +104,12 @@ nextButton.addEventListener("click", () => {
 
 restartButton.addEventListener("click", startQuiz);
 
+
+let correctAnswers = [];
+questions.forEach(question => {
+    correctAnswers.push(question.correctAnswer);
+});
+correctAnswers.push(correctAnswer);
 function endQuiz() {
     questionContainer.style.display = "none";
     nextButton.classList.add("hide");
@@ -133,8 +140,14 @@ function endQuiz() {
     }
     resultDiv.innerText = `Ditt slutliga resultat blev ${score} av ${questions.length} rätt. ${resultText}`;
     resultDiv.style.color = resultColor;
-}
 
+    // Lägg till rätta svaren till resultDiv
+    let correctAnswersText = "De rätta svaren kommer här nedan: \n" + correctAnswers.join("\n");
+    resultDiv.innerText += "\n\n" + correctAnswersText;
+
+    
+}
+//Dark-light mode 
 const toggle = document.getElementById("toggle-dark-mode");
 const body = document.querySelector("body");
 const quizContainer = document.querySelector(".quiz-container");
