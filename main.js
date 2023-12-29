@@ -107,9 +107,9 @@ restartButton.addEventListener("click", startQuiz);
 
 let correctAnswers = [];
 questions.forEach(question => {
-    correctAnswers.push(question.correctAnswer);
+    correctAnswers.push(question.correctAnswers);
 });
-correctAnswers.push(correctAnswer);
+correctAnswers.push(correctAnswers);
 function endQuiz() {
     questionContainer.style.display = "none";
     nextButton.classList.add("hide");
