@@ -107,7 +107,7 @@ restartButton.addEventListener("click", startQuiz);
 
 let correctAnswers = [];
 questions.forEach(question => {
-    correctAnswers.push(question.correctAnswers);
+    correctAnswers.push(question.correctAnswer);
 });
 correctAnswers.push(correctAnswers);
 function endQuiz() {
